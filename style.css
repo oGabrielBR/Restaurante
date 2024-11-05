@@ -11,9 +11,10 @@ li{
 }
 
 nav{
+    width: 1920px;
     display: flex;
     justify-content: center;
-    align-content: baseline;
+    align-content: center;
     background-color: rgb(0, 0, 0);
     margin-bottom: 50px;
 }
@@ -53,4 +54,52 @@ h2{
     background-color: rgb(0, 0, 0);
     height: 2rcap;
     margin-bottom: 40px;
+}
+
+.pcardapio{
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
+.card{
+    width: 200px;
+    height: 283px;
+    display: grid;
+    justify-content: center;
+    background-color: rgb(151, 151, 151);
+    padding: 0%;
+    margin-bottom: 20px;
+    margin-left: 200px;
+    margin-top: 90px;
+    border-radius: 10px;
+}
+
+.botaocard{
+    height: 40px;
+    display: grid;
+    padding: 0%;
+    background-color: rgb(0, 0, 0);
+    border-radius: 10px;
+
+}
+
+.cardimagem{
+    margin-top: 10px;
+}
+
+.cardtitulo{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.carddescricao{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: grid;
+
 }
