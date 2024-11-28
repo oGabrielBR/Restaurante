@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .cart-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .cart-header h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .cart-items {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .cart-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .cart-item-details {
+            flex: 1;
+            margin-left: 15px;
+        }
+
+        .cart-item-details h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .cart-item-details p {
+            margin: 5px 0 0;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .cart-item-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cart-item-actions button {
+            padding: 8px 12px;
+            background-color: #ff5733;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .cart-item-actions button:hover {
+            background-color: #e04b2a;
+        }
+
+        .cart-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 2px solid #ddd;
+            padding-top: 10px;
+            margin-top: 20px;
+        }
+
+        .cart-footer h3 {
+            font-size: 20px;
+            color: #333;
+        }
+
+        .cart-footer button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .cart-footer button:hover {
+            background-color: #218838;
+        }
+
+        @media (max-width: 768px) {
+            .cart-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cart-item img {
+                margin-bottom: 10px;
+            }
+
+            .cart-item-actions {
+                justify-content: space-between;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cart-container">
+        <div class="cart-header">
+            <h1>Meu Carrinho</h1>
+            <button onclick="window.history.back()">Continuar Comprando</button>
+        </div>
+
+        <div class="cart-items">
+        </div>
+
+        <div class="cart-footer">
+            <h3>Total: R$ 0.00</h3>
+            <button>Finalizar Compra</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const cartItemsContainer = document.querySelector('.cart-items');
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let total = 0;
+
+    // Preenche o carrinho com os itens armazenados
+    cart.forEach(item => {
+        const cartItem = document.createElement('div');
+        cartItem.classList.add('cart-item');
+
+        cartItem.innerHTML = `
+            <img src="${item.image}" alt="${item.name}" style="width: 80px; height: 80px; object-fit: cover;">
+            <div class="cart-item-details">
+                <h3>${item.name}</h3>
+                <p>Preço: R$ ${item.price.toFixed(2)}</p>
+            </div>
+            <div class="cart-item-actions">
+                <input type="number" value="${item.quantity}" min="1" style="width: 50px; text-align: center;">
+                <button class="remove-btn">Remover</button>
+            </div>
+        `;
+
+        cartItemsContainer.appendChild(cartItem);
+        total += item.price * item.quantity;
+
+        // Ação de remover item do carrinho
+        cartItem.querySelector('.remove-btn').addEventListener('click', () => {
+            const updatedCart = cart.filter(cartItem => cartItem.name !== item.name);
+            localStorage.setItem('cart', JSON.stringify(updatedCart));
+            window.location.reload();
+        });
+    });
+
+    // Atualiza o total no rodapé
+    document.querySelector('.cart-footer h3').textContent = `Total: R$ ${total.toFixed(2)}`;
+});
+    </script>
+</body>
+</html>
