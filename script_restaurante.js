@@ -58,10 +58,10 @@ document.addEventListener('DOMContentLoaded', () => {
         <h2>Login</h2>
         <form>
             <div style="margin-bottom: 15px;">
-                <input type="text" placeholder="Usuário" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                <input type="text" placeholder="Usuário" style="width: 90%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
             </div>
             <div style="margin-bottom: 15px;">
-                <input type="password" placeholder="Senha" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                <input type="password" placeholder="Senha" style="width: 90%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
             </div>
             <button type="submit" style="padding: 10px 20px; background-color: #ff5733; color: #fff; border: none; border-radius: 4px; cursor: pointer;">Entrar</button>
         </form>
