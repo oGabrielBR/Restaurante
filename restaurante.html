@@ -4,6 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saporis</title>
+
+    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore-compat.js"></script>
+    
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js";
+
+        const firebaseConfig = {
+          apiKey: "AIzaSyAGYz8yawtO2y_o4YlMLfpnVZrSOp0ybpM",
+          authDomain: "restaurante-saporis.firebaseapp.com",
+          projectId: "restaurante-saporis",
+          storageBucket: "restaurante-saporis.firebasestorage.app",
+          messagingSenderId: "485471938260",
+          appId: "1:485471938260:web:e6b7a88dad3c91f2bafd41",
+          measurementId: "G-WPVPDK2WSX"
+        };
+      
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
     <style>
         body {
             font-family: Arial, sans-serif;
