@@ -34,6 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
+    //LOGIN E CADASTRO
+
     const loginModal = document.createElement('div');
     loginModal.style.position = 'fixed';
     loginModal.style.top = '0';
@@ -111,6 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },);
      
 });
+// LOGIN E CADASTRO
 
 const addToCart = (itemName, itemPrice) => {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -131,7 +134,7 @@ const addToCart = (itemName, itemPrice) => {
 const menuItems = document.querySelectorAll('.menu-item');
 menuItems.forEach(item => {
     const price = document.createElement('p');
-    price.textContent = `Preço: R$ ${Math.floor(Math.random() * 50) + 20},00`;
+    price.textContent = `Preço: R$ 45,00`;
     price.style.margin = '10px 0';
     item.appendChild(price);
 

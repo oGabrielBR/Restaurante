@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saporis</title>
-
-    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore-compat.js"></script>
     
     <script type="module">
@@ -24,6 +22,37 @@
       
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
+      </script>
+
+      <script>
+    async function placeOrder(orderData) {
+        const functionUrl = "https://us-central1-YOUR_PROJECT_ID.cloudfunctions.net/placeOrder"; // Replace with your Firebase Function URL
+
+        const response = await fetch(functionUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(orderData),
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            alert('Order placed successfully!');
+        } else {
+            alert('Failed to place order: ' + data.error);
+        }
+    }
+
+    // Example usage: Calling the placeOrder function with dummy order data
+    const orderData = {
+        name: 'John Doe',
+        item: 'Natchos',
+        quantity: 2,
+        address: 'Rua dos Sabores, 123 - Centro',
+    };
+
+    placeOrder(orderData); // Call the function with sample order data
       </script>
     <style>
         body {
@@ -191,6 +220,6 @@
     <footer>
         <p>&copy; 2024 Saporis. Todos os direitos reservados.</p>
     </footer>
-    <script src="script_restaurante.js"></script>
+    <script src="script_restaurante.js" defer></script>
 </body>
 </html>
