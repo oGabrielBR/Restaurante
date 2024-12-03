@@ -22,12 +22,11 @@ const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 admin.initializeApp();
 
-// Example function to store an order in Firestore
 exports.placeOrder = functions.https.onRequest(async (req, res) => {
     try {
-        const order = req.body; // Get order data from the request body
+        const order = req.body;
         const db = admin.firestore();
-        await db.collection('orders').add(order); // Save order to Firestore
+        await db.collection('orders').add(order);
 
         res.status(200).send({ message: 'Order placed successfully!' });
     } catch (error) {

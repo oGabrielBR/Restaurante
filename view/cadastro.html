@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="../view/cadastro.css">
+</head>
+<body>
+    <form id="login-form">
+        <h1>Login</h1>
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="password" id="password" placeholder="Senha" required />
+        <button type="submit" onclick="login()">Login</button>
+        <button id="register-button" type="button"><a href="registro.html">Cadastre-se</button>
+        <p id="error-message" style="color: red; display: none;"></p>
+    </form>
+    <script src="../controller/login.js" defer></script>
+    <script src="../models/firebase.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-auth-compat.js"></script>
+
+</body>
+</html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrinho de Compras</title>
-    <script src="carrinho.js" defer></script>
+    <script src="../controller/carrinho.js" defer></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -84,7 +84,7 @@
     </header>
 
     <div class="cart-container" id="cart-container">
-        <!-- Itens do carrinho serão exibidos aqui -->
+
     </div>
 
     <div class="cart-total">
@@ -96,21 +96,18 @@
     </div>
 
     <script>
-        // Função para carregar os itens do carrinho
         function loadCart() {
             const cart = JSON.parse(localStorage.getItem("cart")) || [];
             const cartContainer = document.getElementById("cart-container");
             const totalPriceElement = document.getElementById("total-price");
             let totalPrice = 0;
 
-            // Limpa o conteúdo atual do carrinho
             cartContainer.innerHTML = "";
 
             cart.forEach(item => {
                 const itemElement = document.createElement("div");
                 itemElement.classList.add("cart-item");
 
-                // Monta os detalhes do item
                 itemElement.innerHTML = `
                     <img src="${item.img}" alt="${item.name}">
                     <div class="cart-item-details">
@@ -130,7 +127,6 @@
             totalPriceElement.textContent = totalPrice.toFixed(2);
         }
 
-        // Função para remover um item do carrinho
         function removeItem(itemName) {
             const cart = JSON.parse(localStorage.getItem("cart")) || [];
             const updatedCart = cart.filter(item => item.name !== itemName);
@@ -138,19 +134,17 @@
             loadCart();
         }
 
-        // Função para finalizar a compra (por enquanto só exibe um alerta)
         function finalizarCompra() {
             const cart = JSON.parse(localStorage.getItem("cart")) || [];
             if (cart.length === 0) {
                 alert("Seu carrinho está vazio!");
             } else {
                 alert("Compra finalizada com sucesso!");
-                localStorage.removeItem("cart"); // Limpa o carrinho
-                loadCart(); // Atualiza a página
+                localStorage.removeItem("cart");
+                loadCart();
             }
         }
 
-        // Carrega os itens do carrinho assim que a página é carregada
         window.onload = loadCart;
     </script>
 </body>

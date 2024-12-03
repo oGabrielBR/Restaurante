@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="../view/cadastro.css">
+</head>
+<body>
+    <form id="register-form">
+        <h1>Crie sua Conta</h1>
+        <input type="email" id="register-email" placeholder="Email" required />
+        <input type="password" id="register-password" placeholder="Senha" required />
+        <button type="submit">Registrar</button>
+        <button type="button" id="back-to-login"><a href ="../view/cadastro.html">Voltar ao Login</button>
+        <p id="register-error-message" style="color: red; display: none;"></p>
+    </form>
+    
+    <script type="module">
+        import { register } from "firebase.js";
+
+        document.getElementById("register-form").addEventListener("submit", async (event) => {
+            event.preventDefault();
+            const email = document.getElementById("register-email").value;
+            const password = document.getElementById("register-password").value;
+            const errorMessage = document.getElementById("register-error-message");
+            errorMessage.style.display = "none";
+
+            try {
+                await register(email, password);
+                alert("Cadastro realizado com sucesso!");
+                window.location.href = "view/cadastro.html";
+            } catch (error) {
+                console.error(error);
+                errorMessage.textContent = "Erro ao realizar cadastro: " + error.message;
+                errorMessage.style.display = "block";
+            }
+        });
+
+        document.getElementById("back-to-login").addEventListener("click", () => {
+            window.location.href = "cadastro.html";
+        });
+    </script>
+
+    <script type="module" src="../models/firebase.js"></script>
+
+</body>
+</html>

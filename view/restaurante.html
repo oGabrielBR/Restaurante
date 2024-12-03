@@ -23,37 +23,6 @@
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
       </script>
-
-      <script>
-    async function placeOrder(orderData) {
-        const functionUrl = "https://us-central1-YOUR_PROJECT_ID.cloudfunctions.net/placeOrder"; // Replace with your Firebase Function URL
-
-        const response = await fetch(functionUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(orderData),
-        });
-
-        const data = await response.json();
-        if (response.ok) {
-            alert('Order placed successfully!');
-        } else {
-            alert('Failed to place order: ' + data.error);
-        }
-    }
-
-    // Example usage: Calling the placeOrder function with dummy order data
-    const orderData = {
-        name: 'John Doe',
-        item: 'Natchos',
-        quantity: 2,
-        address: 'Rua dos Sabores, 123 - Centro',
-    };
-
-    placeOrder(orderData); // Call the function with sample order data
-      </script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -177,6 +146,7 @@
             <li><a href="#sobre">Sobre Nós</a></li>
             <li><a href="#contato">Contato</a></li>
             <li><a href="carrinho.html" class="cart-link">Carrinho</a>
+            <li><a href="cadastro.html" class="login-link">Login</a>
         </ul>
     </nav>
 
@@ -212,14 +182,14 @@
 
     <section id="contato">
         <h2>Contato</h2>
-        <p>Telefone: (11) 1234-5678</p>
+        <p>Telefone: (75) 4002-8922</p>
         <p>Email: contato@saporis.com</p>
-        <p>Endereço: Rua dos Sabores, 123 - Centro</p>
+        <p>Endereço: Getulio Vargas, 123 - Centro</p>
     </section>
 
     <footer>
         <p>&copy; 2024 Saporis. Todos os direitos reservados.</p>
     </footer>
-    <script src="script_restaurante.js" defer></script>
+    <script src="../controller/script_restaurante.js"></script>
 </body>
 </html>

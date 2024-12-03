@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('nav ul li a');
     navLinks.forEach(link => {
@@ -34,67 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    //LOGIN E CADASTRO
-
-    const loginModal = document.createElement('div');
-    loginModal.style.position = 'fixed';
-    loginModal.style.top = '0';
-    loginModal.style.left = '0';
-    loginModal.style.width = '100%';
-    loginModal.style.height = '100%';
-    loginModal.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-    loginModal.style.display = 'flex';
-    loginModal.style.justifyContent = 'center';
-    loginModal.style.alignItems = 'center';
-    loginModal.style.zIndex = '1000';
-    loginModal.style.display = 'none';
-
-    const loginForm = document.createElement('div');
-    loginForm.style.backgroundColor = '#fff';
-    loginForm.style.padding = '20px';
-    loginForm.style.borderRadius = '8px';
-    loginForm.style.width = '300px';
-    loginForm.style.textAlign = 'center';
-
-    loginForm.innerHTML = `
-        <h2>Login</h2>
-        <form>
-            <div style="margin-bottom: 15px;">
-                <input type="text" placeholder="Usuário" style="width: 90%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
-            </div>
-            <div style="margin-bottom: 15px;">
-                <input type="password" placeholder="Senha" style="width: 90%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
-            </div>
-            <button type="submit" style="padding: 10px 20px; background-color: #ff5733; color: #fff; border: none; border-radius: 4px; cursor: pointer;">Entrar</button>
-        </form>
-        <button id="closeLogin" style="margin-top: 10px; padding: 10px 20px; background-color: #333; color: #fff; border: none; border-radius: 4px; cursor: pointer;">Fechar</button>
-    `;
-
-    loginModal.appendChild(loginForm);
-    document.body.appendChild(loginModal);
-
-    const showLoginButton = document.createElement('button');
-    showLoginButton.textContent = 'Login';
-    showLoginButton.style.position = 'fixed';
-    showLoginButton.style.top = '20px';
-    showLoginButton.style.right = '20px';
-    showLoginButton.style.padding = '10px 20px';
-    showLoginButton.style.backgroundColor = '#ff5733';
-    showLoginButton.style.color = '#fff';
-    showLoginButton.style.border = 'none';
-    showLoginButton.style.borderRadius = '4px';
-    showLoginButton.style.cursor = 'pointer';
-    document.body.appendChild(showLoginButton);
-
-    showLoginButton.addEventListener('click', () => {
-        loginModal.style.display = 'flex';
-    });
-
-    document.getElementById('closeLogin').addEventListener('click', () => {
-        loginModal.style.display = 'none';
-    });
-
-
     const addToCart = (itemName, itemPrice) => {
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
         cart.push({ name: itemName, price: itemPrice, quantity: 1 });
@@ -113,7 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
     },);
      
 });
-// LOGIN E CADASTRO
 
 const addToCart = (itemName, itemPrice) => {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -181,8 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cartItemsContainer.appendChild(cartItem);
         total += item.price * item.quantity;
 
-        cartItem.querySelector('.remove-btn').addEventListener('click', () => {
-            const updatedCart = cart.filter(cartItem => cartItem.name !== item.name);
+        cartItem.querySelector('.remove-btn').addEventListener('click', () => {+
             localStorage.setItem('cart', JSON.stringify(updatedCart));
             window.location.reload();
         });
