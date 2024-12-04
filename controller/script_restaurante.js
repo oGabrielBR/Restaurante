@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cartItem.classList.add('cart-item');
 
         cartItem.innerHTML = `
-            <img src="https://via.placeholder.com/80" alt="${item.name}">
+            <img src="../images/${item.name}" alt="${item.name}">
             <div class="cart-item-details">
                 <h3>${item.name}</h3>
                 <p>Preço: R$ ${item.price.toFixed(2)}</p>

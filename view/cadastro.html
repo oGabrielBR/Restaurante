@@ -9,14 +9,13 @@
 <body>
     <form id="login-form">
         <h1>Login</h1>
-        <input type="email" id="email" placeholder="Email" required />
-        <input type="password" id="password" placeholder="Senha" required />
-        <button type="submit" onclick="login()">Login</button>
-        <button id="register-button" type="button"><a href="registro.html">Cadastre-se</button>
+        <input type="email" id="email" placeholder="Email" required  onchange="onChangeEmail()"/>
+        <input type="password" id="password" placeholder="Senha" required onchange="onChangePassword()"/>
+        <button type="submit" id="login-button" onclick="login()">Login</button>
+        <button id="register-button" type="button"><a href="../view/registro.html">Cadastre-se</button>
         <p id="error-message" style="color: red; display: none;"></p>
     </form>
-    <script src="../controller/login.js" defer></script>
-    <script src="../models/firebase.js"></script>
+    <script src="../controller/login.js"></script>
 
     <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-auth-compat.js"></script>

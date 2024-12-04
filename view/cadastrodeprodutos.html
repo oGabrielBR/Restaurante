@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Produto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        .container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 95%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .form-group textarea {
+            resize: vertical;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .buttons .add {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .buttons .update {
+            background-color: #2196F3;
+            color: white;
+        }
+        .buttons .remove {
+            background-color: #f44336;
+            color: white;
+        }
+        .product-list {
+            margin-top: 20px;
+        }
+        .product-list .product {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastro de Produto</h1>
+        <div class="form-group">
+            <label for="productName">Nome do Produto</label>
+            <input type="text" id="productName" placeholder="Digite o nome do produto">
+        </div>
+        <div class="form-group">
+            <label for="productPrice">Preço</label>
+            <input type="number" id="productPrice" placeholder="Digite o preço do produto">
+        </div>
+        <div class="form-group">
+            <label for="productId">ID</label>
+            <input type="text" id="productId" placeholder="Digite o ID do produto">
+        </div>
+        <div class="form-group">
+            <label for="productDescription">Descrição</label>
+            <textarea id="productDescription" placeholder="Digite a descrição do produto"></textarea>
+        </div>
+        <div class="buttons">
+            <button class="add" id="add-button" onclick="addProduct()">Adicionar</button>
+            <button class="update" id="update-button" onclick="updateProduct()">Atualizar</button>
+            <button class="remove" id="remove-button" onclick="removeProduct()">Remover</button>
+        </div>
+        <div class="product-list" id="productList"></div>
+    </div>
+
+    <script>
+        const productList = document.getElementById('productList');
+
+        function addProduct() {
+            const name = document.getElementById('productName')?.value;
+            const price = document.getElementById('productPrice')?.value;
+            const id = document.getElementById('productId')?.value;
+            const description = document.getElementById('productDescription').value;
+
+            if (name && price && id) {
+                const product = document.createElement('div');
+                product.className = 'product';
+                product.innerHTML = `
+                    <div>
+                        <strong>${name}</strong><br>
+                        <small>Preço: R$${price} | ID: ${id}</small><br>
+                        <small>${description}</small>
+                    </div>
+                `;
+                productList.appendChild(product);
+
+                clearFields();
+            } else {
+                alert('Por favor, preencha todos os campos obrigatórios (Nome, Preço e ID).');
+            }
+        }
+
+        function updateProduct() {
+            alert('Função de atualizar ainda não implementada.');
+        }
+
+        function removeProduct() {
+            alert('Função de remover ainda não implementada.');
+        }
+
+        function clearFields() {
+            document.getElementById('productName').value = '';
+            document.getElementById('productPrice').value = '';
+            document.getElementById('productId').value = '';
+            document.getElementById('productDescription').value = '';
+        }
+    </script>
+
+    <script type="module" src="../models/crud.js"></script>
+</body>
+</html>
