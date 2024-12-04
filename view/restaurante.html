@@ -6,23 +6,6 @@
     <title>Saporis</title>
     <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore-compat.js"></script>
     
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js";
-
-        const firebaseConfig = {
-          apiKey: "AIzaSyAGYz8yawtO2y_o4YlMLfpnVZrSOp0ybpM",
-          authDomain: "restaurante-saporis.firebaseapp.com",
-          projectId: "restaurante-saporis",
-          storageBucket: "restaurante-saporis.firebasestorage.app",
-          messagingSenderId: "485471938260",
-          appId: "1:485471938260:web:e6b7a88dad3c91f2bafd41",
-          measurementId: "G-WPVPDK2WSX"
-        };
-      
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-      </script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -74,7 +57,7 @@
         }
 
         .hero {
-            background: url('https://img.freepik.com/fotos-gratis/desenho-de-interiores-de-restaurantes_1409-7442.jpg?t=st=1732761989~exp=1732765589~hmac=8bd7d80eaed18449d9561cff827fc4a71e18b3b6e5e4e48eb6ce106940567bbb&w=1380') no-repeat center center/cover;
+            background: url('https://images.pexels.com/photos/4256560/pexels-photo-4256560.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center/cover;
             height: 500px;
             display: flex;
             align-items: center;
@@ -147,6 +130,7 @@
             <li><a href="#contato">Contato</a></li>
             <li><a href="carrinho.html" class="cart-link">Carrinho</a>
             <li><a href="cadastro.html" class="login-link">Login</a>
+            <li><a href="cadastrodeprodutos.html" class="pedidos-link">Faça seu Pedido</a>    
         </ul>
     </nav>
 
@@ -190,6 +174,28 @@
     <footer>
         <p>&copy; 2024 Saporis. Todos os direitos reservados.</p>
     </footer>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js";
+
+        const firebaseConfig = {
+          apiKey: "AIzaSyAGYz8yawtO2y_o4YlMLfpnVZrSOp0ybpM",
+          authDomain: "restaurante-saporis.firebaseapp.com",
+          projectId: "restaurante-saporis",
+          storageBucket: "restaurante-saporis.firebasestorage.app",
+          messagingSenderId: "485471938260",
+          appId: "1:485471938260:web:e6b7a88dad3c91f2bafd41",
+          measurementId: "G-WPVPDK2WSX"
+        };
+      
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
+
     <script src="../controller/script_restaurante.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js"></script>
 </body>
 </html>

@@ -29,7 +29,7 @@
             try {
                 await register(email, password);
                 alert("Cadastro realizado com sucesso!");
-                window.location.href = "view/cadastro.html";
+                window.location.href = "../view/cadastro.html";
             } catch (error) {
                 console.error(error);
                 errorMessage.textContent = "Erro ao realizar cadastro: " + error.message;
@@ -38,7 +38,7 @@
         });
 
         document.getElementById("back-to-login").addEventListener("click", () => {
-            window.location.href = "cadastro.html";
+            window.location.href = "../view/cadastro.html";
         });
     </script>
 
