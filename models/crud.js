@@ -39,7 +39,7 @@ async function addDocument() {
 }
 
 async function updateDocument() {
-  const ref = doc(db, "Produtos", "productId"); // replace "productId" with the actual ID of the document to update
+  const ref = doc(db, "Produtos", "productId");
   await updateDoc(ref, {
     nome: namebox.value,
     preco: precobox.value,
@@ -50,7 +50,7 @@ async function updateDocument() {
 }
 
 async function removeDocument() {
-  const ref = doc(db, "Produtos", "productId"); // replace "productId" with the actual ID of the document to remove
+  const ref = doc(db, "Produtos", "productId");
   await deleteDoc(ref);
   console.log("Document removed");
 }
