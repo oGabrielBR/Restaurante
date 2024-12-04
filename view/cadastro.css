@@ -1,15 +1,13 @@
-/* Resetando margens e preenchimento padrões */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Corpo da página */
 body {
   font-family: Arial, sans-serif;
-  background-color: #fffbf0; /* Fundo claro */
-  color: #333; /* Cor do texto */
+  background-color: #fffbf0;
+  color: #333;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,9 +15,8 @@ body {
   margin: 0;
 }
 
-/* Estilo do formulário de login */
 #login-form {
-  background-color: #ff9800; /* Fundo laranja */
+  background-color: #ff9800;
   padding: 30px;
   border-radius: 8px;
   width: 100%;
@@ -28,14 +25,12 @@ body {
   text-align: center;
 }
 
-/* Título do formulário */
 h1 {
   font-size: 24px;
-  color: #fff; /* Texto branco */
+  color: #fff;
   margin-bottom: 20px;
 }
 
-/* Estilo dos inputs */
 input {
   width: 100%;
   padding: 12px;
@@ -45,11 +40,10 @@ input {
   font-size: 16px;
 }
 
-/* Estilo do botão de login */
 button[type="submit"] {
   width: 100%;
   padding: 12px;
-  background-color: #ff5722; /* Laranja escuro */
+  background-color: #ff5722;
   color: white;
   border: none;
   border-radius: 4px;
@@ -59,14 +53,13 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #e64a19; /* Cor de hover mais escura */
+  background-color: #e64a19;
 }
 
-/* Estilo do botão "Cadastre-se" */
 button[type="button"] {
   width: 100%;
   padding: 12px;
-  background-color: #ffcc80; /* Laranja claro */
+  background-color: #ffcc80;
   color: #333;
   border: none;
   border-radius: 4px;
@@ -77,22 +70,19 @@ button[type="button"] {
 }
 
 button[type="button"]:hover {
-  background-color: #ffb74d; /* Cor de hover mais escura */
+  background-color: #ffb74d;
 }
 
-/* Estilo do link dentro do botão de cadastro */
 #register-button a {
   text-decoration: none;
-  color: inherit; /* Herda a cor do botão */
+  color: inherit;
 }
 
-/* Estilo da mensagem de erro */
 #error-message {
   margin-top: 20px;
   font-size: 14px;
 }
 
-/* Responsividade: Ajustes para telas menores */
 @media (max-width: 480px) {
   #login-form {
       padding: 20px;
